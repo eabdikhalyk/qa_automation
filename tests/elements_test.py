@@ -26,7 +26,6 @@ class TestElements:
             input_checkbox = check_box_page.get_checked_checkboxes()
             output_result = check_box_page.get_output_result()
 
-<<<<<<< HEAD
             assert  input_checkbox == output_result, 'Checkboxes have not been selected'
 
     class TestRadioButton:
