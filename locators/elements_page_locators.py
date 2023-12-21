@@ -22,11 +22,22 @@ class CheckBoxPageLocators:
     OUTPUT_RESULT = (By.CSS_SELECTOR,"span[class='text-success']")
 
 class RadioButtonLocators:
-    # RADIOS = (By.CSS_SELECTOR,"label[class='custom-control-label']")
-    # OUTPUT_RESULT = (By.CSS_SELECTOR,"span[class='text-success']")
     YES_RADIO = (By.CSS_SELECTOR,"label[for='yesRadio']")
     IMPRESSIVE_RADIO = (By.CSS_SELECTOR,"label[for='impressiveRadio']")
     NO_RADIO = (By.CSS_SELECTOR,"label[for='noRadio']")
     OUTPUT_RESULT = (By.CSS_SELECTOR,"p span[class='text-success']")
 
+class WebTablePageLocators:
+    ADD_BUTTON = (By.ID, "addNewRecordButton")
+    FIRSTNAME_INPUT = (By.ID,"firstName")
+    LASTNAME_INPUT = (By.ID,"lastName")
+    EMAIL_INPUT = (By.ID,"userEmail")
+    AGE_INPUT = (By.ID,"age")
+    SALARY_INPUT = (By.ID,"salary")
+    DEPARTMENT_INPUT = (By.ID,"department")
+    SUBMIT = (By.ID,"submit")
 
+    FULL_PEOPLE_LIST = (By.CSS_SELECTOR,"div[class='rt-tr-group']")
+    SEARCH_INPUT = (By.CSS_SELECTOR,"input[id='searchBox']")
+    DELETE_BUTTON = (By.CSS_SELECTOR,"span[title='Delete']")
+    ROW_PARENT = (".//ancestor::div[@class='rt-tr-group']")
