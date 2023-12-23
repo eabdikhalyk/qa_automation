@@ -55,3 +55,7 @@ class ButtonsPageLocators:
     OUTPUT_DOUBLE = (By.ID,"doubleClickMessage")
     OUTPUT_RIGHT = (By.ID,"rightClickMessage")
     OUTPUT_CLICK_ME = (By.ID,"dynamicClickMessage")
+
+class LinkPageLocators:
+    SIMPLE_LINK = (By.CSS_SELECTOR,"a[id='simpleLink']")
+    BAD_REQUEST = (By.CSS_SELECTOR,"a[id='bad-request']")
