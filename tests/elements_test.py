@@ -93,7 +93,7 @@ class TestElements:
             assert right == "You have done a right click", "The right click was not clicked"
             assert click == "You have done a dynamic click" , "The click me was not clicked"
 
-class TestLinksPage:
+    class TestLinksPage:
        def test_check_link(self, driver):
            link_page = LinkPage(driver,"https://demoqa.com/links")
            link_page.open()
