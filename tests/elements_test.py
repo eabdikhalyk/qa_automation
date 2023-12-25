@@ -1,5 +1,4 @@
 import random
-import time
 
 from pages.elements_page import TextBoxPage, CheckBoxPage, RadioButtonPage, WebTablePage, ButtonsPage, LinkPage
 from pages.elements_page import TextBoxPage, CheckBoxPage
@@ -91,10 +90,7 @@ class TestElements:
             click = button_page.click_on_different_button('click')
             assert double == "You have done a double click", "The double click was not clicked"
             assert right == "You have done a right click", "The right click was not clicked"
-<<<<<<<<< Temporary merge branch 1
             assert click == "You have done a dynamic click" ,"The click me was not clicked"
-=========
-            assert click == "You have done a dynamic click" , "The click me was not clicked"
 
 class TestLinksPage:
        def test_check_link(self, driver):
@@ -107,4 +103,4 @@ class TestLinksPage:
            link_page.open()
            response_code = link_page.check_broken_link('https://demoqa.com/bad-request')
            assert response_code == 400, 'Bad request is not worked'
->>>>>>>>> Temporary merge branch 2
+

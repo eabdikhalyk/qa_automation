@@ -162,9 +162,6 @@ class ButtonsPage(BasePage):
             return self.check_clicked_on_the_button(self.locators.OUTPUT_CLICK_ME)
 
     def check_clicked_on_the_button(self, element):
-<<<<<<<<< Temporary merge branch 1
-        return self.element_is_present(element).text
-=========
         return self.element_is_present(element).text
 
 class LinkPage(BasePage):
@@ -188,4 +185,3 @@ class LinkPage(BasePage):
             self.element_is_present(self.locators.BAD_REQUEST).click()
         else:
             return request.status_code
->>>>>>>>> Temporary merge branch 2
