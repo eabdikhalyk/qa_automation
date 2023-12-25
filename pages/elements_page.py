@@ -2,13 +2,8 @@ import random
 
 import requests
 from selenium.webdriver.common.by import By
-
-<<<<<<<<< Temporary merge branch 1
-from locators.elements_page_locators import RadioButtonLocators, WebTablePageLocators, ButtonsPageLocators
-=========
 from locators.elements_page_locators import RadioButtonLocators, WebTablePageLocators, ButtonsPageLocators, \
     LinkPageLocators
->>>>>>>>> Temporary merge branch 2
 from locators.elements_page_locators import TextBoxPageLocators, CheckBoxPageLocators
 from pages.base_page import BasePage
 from generator.generator import generator_person
