@@ -54,11 +54,12 @@ class ButtonsPageLocators:
 
     OUTPUT_DOUBLE = (By.ID,"doubleClickMessage")
     OUTPUT_RIGHT = (By.ID,"rightClickMessage")
+<<<<<<<<< Temporary merge branch 1
+    OUTPUT_CLICK_ME = (By.ID,"dynamicClickMessage")
+=========
     OUTPUT_CLICK_ME = (By.ID,"dynamicClickMessage")
 
 class LinkPageLocators:
     SIMPLE_LINK = (By.CSS_SELECTOR,"a[id='simpleLink']")
     BAD_REQUEST = (By.CSS_SELECTOR,"a[id='bad-request']")
-
-class UploadDownloadLocators:
-    pass
+>>>>>>>>> Temporary merge branch 2

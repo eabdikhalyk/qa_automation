@@ -3,8 +3,12 @@ import random
 import requests
 from selenium.webdriver.common.by import By
 
+<<<<<<<<< Temporary merge branch 1
+from locators.elements_page_locators import RadioButtonLocators, WebTablePageLocators, ButtonsPageLocators
+=========
 from locators.elements_page_locators import RadioButtonLocators, WebTablePageLocators, ButtonsPageLocators, \
-    LinkPageLocators, UploadDownloadLocators
+    LinkPageLocators
+>>>>>>>>> Temporary merge branch 2
 from locators.elements_page_locators import TextBoxPageLocators, CheckBoxPageLocators
 from pages.base_page import BasePage
 from generator.generator import generator_person
@@ -158,6 +162,9 @@ class ButtonsPage(BasePage):
             return self.check_clicked_on_the_button(self.locators.OUTPUT_CLICK_ME)
 
     def check_clicked_on_the_button(self, element):
+<<<<<<<<< Temporary merge branch 1
+        return self.element_is_present(element).text
+=========
         return self.element_is_present(element).text
 
 class LinkPage(BasePage):
@@ -166,21 +173,19 @@ class LinkPage(BasePage):
     def check_new_tab_simple_link(self):
         simple_link = self.element_is_visible(self.locators.SIMPLE_LINK)
         link_href = simple_link.get_attribute('href')
-        response = requests.get(link_href)
-        if response.status_code == 200:
+        request = requests.get(link_href)
+        if request.status_code == 200:
             simple_link.click()
             self.driver.switch_to.window(self.driver.window_handles[1])
             url = self.driver.current_url
             return link_href, url
         else:
-            return  response.status_code, 'None'
+            return  request.status_code, 'None'
 
     def check_broken_link(self,url):
-        response = requests.get(url)
-        if response.status_code == 200:
+        request = requests.get(url)
+        if request.status_code == 200:
             self.element_is_present(self.locators.BAD_REQUEST).click()
         else:
-            return response.status_code
-
-class UploadDownloadPage(BasePage):
-    locators = UploadDownloadLocators()
+            return request.status_code
+>>>>>>>>> Temporary merge branch 2
