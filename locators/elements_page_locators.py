@@ -59,3 +59,6 @@ class ButtonsPageLocators:
 class LinkPageLocators:
     SIMPLE_LINK = (By.CSS_SELECTOR,"a[id='simpleLink']")
     BAD_REQUEST = (By.CSS_SELECTOR,"a[id='bad-request']")
+
+class UploadDownloadLocators:
+    pass
