@@ -17,3 +17,11 @@ def generator_person():
         salary=random.randint(1800,3000),
         department=faker_ru.job(),
     )
+
+def generated_file():
+    path = f'/home/yerkebulan/PycharmProjects/qa_automation/data/file_{random.randint(0,999)}.txt'
+    with open(path,'x+') as file:
+        file.write(f'Hello, world {random.randint(0,999)}')
+
+    print(path.replace('..',''))
+    return file.name, path

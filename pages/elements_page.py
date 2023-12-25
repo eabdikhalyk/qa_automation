@@ -1,17 +1,16 @@
+import base64
+import os
 import random
+import time
 
 import requests
 from selenium.webdriver.common.by import By
-
-<<<<<<<<< Temporary merge branch 1
-from locators.elements_page_locators import RadioButtonLocators, WebTablePageLocators, ButtonsPageLocators
-=========
 from locators.elements_page_locators import RadioButtonLocators, WebTablePageLocators, ButtonsPageLocators, \
-    LinkPageLocators
->>>>>>>>> Temporary merge branch 2
+    LinkPageLocators, UploadDownloadLocators
 from locators.elements_page_locators import TextBoxPageLocators, CheckBoxPageLocators
 from pages.base_page import BasePage
-from generator.generator import generator_person
+from generator.generator import generator_person, generated_file
+
 
 class TextBoxPage(BasePage):
     locators = TextBoxPageLocators()
@@ -170,18 +169,42 @@ class LinkPage(BasePage):
     def check_new_tab_simple_link(self):
         simple_link = self.element_is_visible(self.locators.SIMPLE_LINK)
         link_href = simple_link.get_attribute('href')
-        request = requests.get(link_href)
-        if request.status_code == 200:
+        response = requests.get(link_href)
+        if response.status_code == 200:
             simple_link.click()
             self.driver.switch_to.window(self.driver.window_handles[1])
             url = self.driver.current_url
             return link_href, url
         else:
-            return  request.status_code, 'None'
+            return  response.status_code, 'None'
 
     def check_broken_link(self,url):
-        request = requests.get(url)
-        if request.status_code == 200:
+        response = requests.get(url)
+        if response.status_code == 200:
             self.element_is_present(self.locators.BAD_REQUEST).click()
         else:
-            return request.status_code
+            return response.status_code
+
+class UploadDownloadPage(BasePage):
+    locators = UploadDownloadLocators()
+
+    def upload_file(self):
+        file_name, path = generated_file()
+        self.element_is_present(self.locators.UPLOAD_FILE).send_keys(path)
+        os.remove(path)
+        text = self.element_is_present(self.locators.UPLOADED_FILE).text
+        uploaded = text.replace("C:\\fakepath\\",'')
+        f_name = file_name.replace(r"/home/yerkebulan/PycharmProjects/qa_automation/data/","")
+        return uploaded, f_name
+
+    def download_file(self):
+        link = self.element_is_present(self.locators.DOWNLOAD_FILE).get_attribute('href')
+        link_decoded = base64.b64decode(link)
+        path_name_file = f'/home/yerkebulan/PycharmProjects/qa_automation/data/file_{random.randint(0,999)}.jpg'
+        with open(path_name_file,'wb+') as file:
+            offset = link_decoded.find(b'\xff\xd8')
+            file.write(link_decoded[offset:])
+            check_file = os.path.exists(path_name_file)
+        os.remove(path_name_file)
+        return check_file
+
