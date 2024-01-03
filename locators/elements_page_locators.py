@@ -59,8 +59,13 @@ class LinkPageLocators:
     SIMPLE_LINK = (By.CSS_SELECTOR,"a[id='simpleLink']")
     BAD_REQUEST = (By.CSS_SELECTOR,"a[id='bad-request']")
 
-class UploadDownloadLocators:
+class UploadAndDownloadPageLocators:
     UPLOAD_FILE = (By.CSS_SELECTOR,"input[id='uploadFile']")
     UPLOADED_FILE = (By.CSS_SELECTOR,"p[id='uploadedFilePath']")
 
     DOWNLOAD_FILE = (By.CSS_SELECTOR,"a[id='downloadButton']")
+
+class DynamicPropertiesPageLocators:
+    COLOR_CHANGE = (By.CSS_SELECTOR,"button[id='colorChange']")
+    VISIBLE_AFTER_5_SEC = (By.CSS_SELECTOR,"button[id='visibleAfter']")
+    ENABLE_BUTTON = (By.CSS_SELECTOR,"button[id='enableAfter']")
