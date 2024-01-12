@@ -132,3 +132,4 @@ class TestElements:
             dynamic_properties_page.open()
             is_enable = dynamic_properties_page.check_enable_button()
             assert is_enable is True, "The button has not been enable to click"
+

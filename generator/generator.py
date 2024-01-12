@@ -16,6 +16,7 @@ def generator_person():
         age=random.randint(18,80),
         salary=random.randint(1800,3000),
         department=faker_ru.job(),
+        mobile= faker_ru.msisdn(),
     )
 
 def generated_file():

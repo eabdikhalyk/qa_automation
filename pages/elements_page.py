@@ -230,3 +230,4 @@ class DynamicPropertiesPage(BasePage):
         except TimeoutException:
             return False
         return True
+
