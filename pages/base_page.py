@@ -29,7 +29,8 @@ class BasePage:
 
     def element_is_clickable(self, locator, timeout=5):
         return wait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
-
+    def alert_is_present(self,timeout=7):
+        return wait(self.driver, timeout).until(EC.alert_is_present())
     def go_to_element(self, element):
         self.driver.execute_script('arguments[0].scrollIntoView();', element)
 
@@ -45,3 +46,5 @@ class BasePage:
     def remove_footer(self):
         self.driver.execute_script("document.getElementsByTagName('footer')[0].remove();")
         self.driver.execute_script("document.getElementsById('close-fixedban').remove();")
+
+
